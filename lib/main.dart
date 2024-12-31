@@ -1,5 +1,6 @@
 // ignore_for_file: unused_field
 
+import 'package:discover_trips/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'models/trip.dart';
@@ -8,9 +9,8 @@ import '../repository/trip_repository.dart';
 import '../screens/trip_details_screen.dart';
 import '../screens/categories_screen.dart';
 import '../screens/category_trips_screen.dart';
-//import '../screens/favorites_screen.dart';
+import '../screens/favorites_screen.dart';
 import '../screens/filters_screen.dart';
-import '../screens/taps_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -61,12 +61,9 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  
-
-  bool _isFavorite(String id){
+  bool _isFavorite(String id) {
     return _favoriteTrips.any((trip) => trip.id == id);
   }
-
 
   List<Trip> _availableTrips = tripsData;
   final List<Trip> _favoriteTrips = [];
@@ -126,15 +123,22 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: [
         Locale('ar', 'AE'),
       ],
-      initialRoute: AppRoute.tapsScreen,
+      initialRoute: AppRoute.homeScreen,
       routes: {
-        AppRoute.tapsScreen: (context) =>
-            TapsScreen(favoriteTrips: _favoriteTrips),
+        
+        AppRoute.homeScreen: (context) =>
+            HomeScreen(favoriteTrips: _favoriteTrips),
+        
         AppRoute.categoriesScreen: (context) => CategoriesScreen(),
+        
         AppRoute.categoryTripsScreen: (context) =>
             CategoryTripsScreen(availableTrips: _availableTrips),
-        AppRoute.tripDetailsScreen: (context) => TripDetailsScreen(manageFavorite: _manageFavorite , isFavorite: _isFavorite,),
-        //AppRoute.favoritesScreen: (context) => FavoritesScreen(favoriteTrips: _favoriteTrips,),
+        
+        AppRoute.tripDetailsScreen: (context) => TripDetailsScreen(
+              manageFavorite: _manageFavorite,
+              isFavorite: _isFavorite,
+            ),
+        AppRoute.favoritesScreen: (context) => FavoritesScreen(favoriteTrips: _favoriteTrips,),
         AppRoute.filtersScreen: (context) => FiltersScreen(
               saveFilters: saveFilterChanges,
               currentFilters: _currentFilters,

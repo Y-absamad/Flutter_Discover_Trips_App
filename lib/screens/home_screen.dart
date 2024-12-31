@@ -1,45 +1,38 @@
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
 import '../screens/categories_screen.dart';
-import '../screens/favorites_screen.dart';
 import '../widgets/drawer/app_drawer.dart';
+import 'favorites_screen.dart';
 
-class TapsScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   final List<Trip> favoriteTrips;
-  const TapsScreen({super.key, required this.favoriteTrips});
+  const HomeScreen({super.key, required this.favoriteTrips});
 
   @override
-  State<TapsScreen> createState() => _TapsScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _TapsScreenState extends State<TapsScreen> {
-  late List<Map<String, Object>> _screens;
+class _HomeScreenState extends State<HomeScreen> {
+ int _selectedIndex = 0;
 
-  @override
-  void initState() {
-    _screens = [
-      {'screen': CategoriesScreen(), 'title': 'تصنيفات الرحلات'},
-      {
-        'screen': FavoritesScreen(favoriteTrips: widget.favoriteTrips),
-        'title': 'الرحلات المفضلة'
-      }
-    ];
-    super.initState();
-  }
+  final List<String> _titles = ['تصنيفات الرحلات', 'الرحلات المفضلة'];
 
-  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    Widget currentScreen = _selectedIndex == 0
+        ? CategoriesScreen()
+        : FavoritesScreen(favoriteTrips: widget.favoriteTrips);
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            _screens[_selectedIndex]['title'] as String,
+            _titles[_selectedIndex],
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
         drawer: AppDrawer(),
-        body: _screens[_selectedIndex]['screen'] as Widget,
+        body: currentScreen,
         bottomNavigationBar: BottomNavigationBar(
           onTap: (value) {
             setState(() {
@@ -49,24 +42,28 @@ class _TapsScreenState extends State<TapsScreen> {
           currentIndex: _selectedIndex,
           backgroundColor: Theme.of(context).primaryColorLight,
           selectedItemColor: Colors.amber,
-          selectedLabelStyle: TextStyle(
+          selectedLabelStyle: const TextStyle(
             fontSize: 16,
             fontFamily: 'ELMessiri',
             fontWeight: FontWeight.bold,
           ),
-          unselectedLabelStyle: TextStyle(
+          unselectedLabelStyle: const TextStyle(
             fontSize: 14,
             fontFamily: 'ELMessiri',
           ),
           unselectedItemColor: Colors.black54,
-          items: [
+          items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard), label: 'التصنيفات'),
-            BottomNavigationBarItem(icon: Icon(Icons.star), label: 'المفضلة'),
+              icon: Icon(Icons.dashboard),
+              label: 'التصنيفات',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.star),
+              label: 'المفضلة',
+            ),
           ],
         ),
       ),
-      
     );
   }
 }
