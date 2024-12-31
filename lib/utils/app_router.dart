@@ -1,7 +1,8 @@
 
 
 class AppRoute {
-  static const String tapsScreen = '/';
+  static const String homeScreen= '/';
+  static const String allTripsScreen = '/allTripsScreen';
   static const String categoriesScreen = '/categoriesScreen';
   static const String categoryTripsScreen = '/categoryTripsScreen';
   static const String tripDetailsScreen = '/tripDetailsScreen';

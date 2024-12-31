@@ -23,7 +23,7 @@ class AppDrawer extends StatelessWidget {
           ),
           BuildListTitle(
             onTap: () =>
-                Navigator.pushReplacementNamed(context, AppRoute.tapsScreen),
+                Navigator.pushReplacementNamed(context, AppRoute.homeScreen),
             title: '    الرحلات',
             icon: Icons.card_travel,
           ),
