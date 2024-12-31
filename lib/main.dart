@@ -1,5 +1,6 @@
 // ignore_for_file: unused_field
 
+import 'package:discover_trips/screens/all_trips_screen.dart';
 import 'package:discover_trips/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -127,7 +128,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         
         AppRoute.homeScreen: (context) =>
-            HomeScreen(favoriteTrips: _favoriteTrips),
+            HomeScreen(favoriteTrips: _favoriteTrips , allTrips: _availableTrips,),
+
+        AppRoute.allTripsScreen: (context) => AllTripsScreen(allTrips: _availableTrips,) ,   
         
         AppRoute.categoriesScreen: (context) => CategoriesScreen(),
         
@@ -139,6 +142,7 @@ class _MyAppState extends State<MyApp> {
               isFavorite: _isFavorite,
             ),
         AppRoute.favoritesScreen: (context) => FavoritesScreen(favoriteTrips: _favoriteTrips,),
+        
         AppRoute.filtersScreen: (context) => FiltersScreen(
               saveFilters: saveFilterChanges,
               currentFilters: _currentFilters,
