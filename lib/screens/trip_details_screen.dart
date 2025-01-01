@@ -1,22 +1,30 @@
+import 'package:discover_trips/viewmodels/trips_manager.dart';
 import 'package:discover_trips/widgets/tripDetails/list_view_container.dart';
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
 import '../widgets/tripDetails/section_titel.dart';
-import '../repository/trip_repository.dart';
 
-class TripDetailsScreen extends StatelessWidget {
-  final Function manageFavorite;
+class TripDetailsScreen extends StatefulWidget {
+  final TripsManager tripsManager;
+  final Function changeFavoriteTrips;
   final Function isFavorite;
-  const TripDetailsScreen(
-      {super.key,
-      required this.manageFavorite,
-      required this.isFavorite,
-      });
+  const TripDetailsScreen({
+    super.key,
+    required this.tripsManager,
+    required this.changeFavoriteTrips,
+    required this.isFavorite,
+  });
 
+  @override
+  State<TripDetailsScreen> createState() => _TripDetailsScreenState();
+}
+
+class _TripDetailsScreenState extends State<TripDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     final tripId = ModalRoute.of(context)!.settings.arguments as String;
-    final Trip selectedTrip = tripsData.firstWhere((trip) => trip.id == tripId);
+    final Trip selectedTrip = widget.tripsManager.getTrip(tripId);
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -76,10 +84,14 @@ class TripDetailsScreen extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(
-            isFavorite(tripId) ? Icons.favorite : Icons.favorite_border,
+            //widget.isFavorite(tripId) ? Icons.favorite : Icons.favorite_border,
+            widget.isFavorite(tripId) ? Icons.favorite : Icons.favorite_border,
           ),
           onPressed: () {
-            manageFavorite(tripId);
+            widget.changeFavoriteTrips(tripId);
+            // setState(() {
+            //   widget.favoriteManager.updateFavoritesTrips(tripId);
+            // });
           },
         ),
       ),

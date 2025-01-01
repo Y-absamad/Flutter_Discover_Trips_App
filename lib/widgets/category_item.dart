@@ -17,7 +17,7 @@ class CategoryItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context).pushNamed(
-          AppRoute.categoryTripsScreen,
+          AppRoute.tripsByCategoryScreen,
           arguments: {'id': id, 'name': name},
         );
       },

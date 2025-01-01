@@ -10,12 +10,13 @@ class HomeScreen extends StatefulWidget {
   final List<Trip> allTrips;
   final Function saveFilters;
   final Map<String, bool> currentFilters;
-  const HomeScreen(
-      {super.key,
-      required this.favoriteTrips,
-      required this.allTrips,
-      required this.saveFilters,
-      required this.currentFilters});
+  const HomeScreen({
+    super.key,
+    required this.favoriteTrips,
+    required this.allTrips,
+    required this.saveFilters,
+    required this.currentFilters,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -48,8 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: [IconButton(onPressed: () {}, icon: Icon(Icons.light_mode))],
         ),
         drawer: AppDrawer(
-            saveFilters: widget.saveFilters,
-            currentFilters: widget.currentFilters),
+          saveFilters: widget.saveFilters,
+          currentFilters: widget.currentFilters,
+        ),
         body: currentScreen,
         bottomNavigationBar: BottomNavigationBar(
           onTap: (value) {

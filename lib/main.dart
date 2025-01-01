@@ -1,16 +1,11 @@
-// ignore_for_file: unused_field
-
-import 'package:discover_trips/screens/views/all_trips.dart';
-import 'package:discover_trips/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'models/trip.dart';
-import 'utils/app_router.dart';
+import '../viewmodels/favorite_manager.dart';
+import '../viewmodels/trips_manager.dart';
+import '../models/trip.dart';
+import '../utils/app_router.dart';
 import '../repository/trip_repository.dart';
-import '../screens/trip_details_screen.dart';
-import 'screens/views/categories_screen.dart';
-import 'screens/views/category_trips_screen.dart';
-import 'screens/views/favorites_trips.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -24,53 +19,35 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  
-  List<Trip> _availableTrips = tripsData;
+  final TripRepository _tripRepository = TripRepository();
+  late TripsManager _tripsManager;
+  late List<Trip> tripsData;
+  late List<Trip> _allTrips;
+  late final FavoriteManager _favoriteManager;
   final List<Trip> _favoriteTrips = [];
 
-  Map<String, bool> _currentFilters = {
-    'summer': false,
-    'winter': false,
-    'family': false,
-  };
+  @override
+  void initState() {
+    super.initState();
+    tripsData = _tripRepository.fetchAllTrips;
+    _allTrips = tripsData;
+    _tripsManager =
+        TripsManager(allTrips: _allTrips, tripRepository: _tripRepository);
+    _favoriteManager =
+        FavoriteManager(favoriteTrips: _favoriteTrips, allTrips: _allTrips);
+  }
 
-  void saveFilterChanges(Map<String, bool> filterData) {
+  void _updateFilterChanges(Map<String, bool> filterData) {
     setState(() {
-      _currentFilters = filterData;
-      _availableTrips = tripsData.where((trip) {
-        if (_currentFilters['summer'] == true && trip.isInSummer != true) {
-          return false;
-        }
-        if (_currentFilters['winter'] == true && trip.isInWinter != true) {
-          return false;
-        }
-        if (_currentFilters['family'] == true && trip.isForFamilies != true) {
-          return false;
-        }
-        return true;
-      }).toList();
+      _tripsManager.updateFilterChanges(filterData);
     });
   }
 
-  void _manageFavorite(String tripId) {
-    final int index = _favoriteTrips.indexWhere((trip) => trip.id == tripId);
-    if (index >= 0) {
-      setState(() {
-        _favoriteTrips.removeAt(index);
-      });
-    } else {
-      setState(() {
-        _favoriteTrips.add(tripsData.firstWhere((trip) => trip.id == tripId));
-      });
-    }
+  void _updateFavoritesTrips(String tripId) {
+    setState(() {
+      _favoriteManager.updateFavoritesTrips(tripId);
+    });
   }
-
-  bool _isFavorite(String id) {
-    return _favoriteTrips.any((trip) => trip.id == id);
-  }
-  
-  
-
 
   @override
   Widget build(BuildContext context) {
@@ -127,26 +104,15 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: [
         Locale('ar', 'AE'),
       ],
-      initialRoute: AppRoute.homeScreen,
-      routes: {
-        
-        AppRoute.homeScreen: (context) => HomeScreen(favoriteTrips: _favoriteTrips , allTrips: _availableTrips, saveFilters: saveFilterChanges,currentFilters: _currentFilters),
 
-        AppRoute.allTripsScreen: (context) => AllTripsScreen(allTrips: _availableTrips,) ,   
-        
-        AppRoute.categoriesScreen: (context) => CategoriesScreen(),
-        
-        AppRoute.categoryTripsScreen: (context) =>
-            CategoryTripsScreen(availableTrips: _availableTrips),
-        
-        AppRoute.tripDetailsScreen: (context) => TripDetailsScreen(
-              manageFavorite: _manageFavorite,
-              isFavorite: _isFavorite,
-            ),
-        AppRoute.favoritesScreen: (context) => FavoritesScreen(favoriteTrips: _favoriteTrips,),
-        
-        
-      },
+      initialRoute: AppRoute.homeScreen,
+      routes: AppRoute.getRoutes(
+        favoriteTrips: _favoriteTrips,
+        tripsManager: _tripsManager,
+        updateFilterChanges: _updateFilterChanges,
+        updateFavoritesTrips: _updateFavoritesTrips,
+        favoriteManager: _favoriteManager,
+      ),
     );
   }
 }
