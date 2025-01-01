@@ -1,6 +1,6 @@
 // ignore_for_file: unused_field
 
-import 'package:discover_trips/screens/all_trips_screen.dart';
+import 'package:discover_trips/screens/views/all_trips.dart';
 import 'package:discover_trips/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,10 +8,9 @@ import 'models/trip.dart';
 import 'utils/app_router.dart';
 import '../repository/trip_repository.dart';
 import '../screens/trip_details_screen.dart';
-import '../screens/categories_screen.dart';
-import '../screens/category_trips_screen.dart';
-import '../screens/favorites_screen.dart';
-import '../screens/filters_screen.dart';
+import 'screens/views/categories_screen.dart';
+import 'screens/views/category_trips_screen.dart';
+import 'screens/views/favorites_trips.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,6 +24,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  
+  List<Trip> _availableTrips = tripsData;
+  final List<Trip> _favoriteTrips = [];
+
   Map<String, bool> _currentFilters = {
     'summer': false,
     'winter': false,
@@ -65,9 +68,9 @@ class _MyAppState extends State<MyApp> {
   bool _isFavorite(String id) {
     return _favoriteTrips.any((trip) => trip.id == id);
   }
+  
+  
 
-  List<Trip> _availableTrips = tripsData;
-  final List<Trip> _favoriteTrips = [];
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +112,7 @@ class _MyAppState extends State<MyApp> {
               ),
               displayLarge: TextStyle(
                 color: Colors.black,
-                fontSize: 24,
+                fontSize: 18,
                 fontFamily: 'ELMessiri',
                 fontWeight: FontWeight.bold,
               ),
@@ -127,8 +130,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: AppRoute.homeScreen,
       routes: {
         
-        AppRoute.homeScreen: (context) =>
-            HomeScreen(favoriteTrips: _favoriteTrips , allTrips: _availableTrips,),
+        AppRoute.homeScreen: (context) => HomeScreen(favoriteTrips: _favoriteTrips , allTrips: _availableTrips, saveFilters: saveFilterChanges,currentFilters: _currentFilters),
 
         AppRoute.allTripsScreen: (context) => AllTripsScreen(allTrips: _availableTrips,) ,   
         
@@ -143,10 +145,7 @@ class _MyAppState extends State<MyApp> {
             ),
         AppRoute.favoritesScreen: (context) => FavoritesScreen(favoriteTrips: _favoriteTrips,),
         
-        AppRoute.filtersScreen: (context) => FiltersScreen(
-              saveFilters: saveFilterChanges,
-              currentFilters: _currentFilters,
-            ),
+        
       },
     );
   }

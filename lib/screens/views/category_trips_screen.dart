@@ -1,8 +1,9 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:discover_trips/widgets/display_trip_list.dart';
 import 'package:flutter/material.dart';
-import '../widgets/trip_item.dart';
-import '../models/trip.dart';
+import '../../widgets/trip_item.dart';
+import '../../models/trip.dart';
 
 class CategoryTripsScreen extends StatefulWidget {
   final List<Trip> availableTrips;
@@ -41,19 +42,7 @@ class _CategoryTripsScreenState extends State<CategoryTripsScreen> {
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            return TripItem(
-              imageUrl: displayTrips[index].imageUrl,
-              name: displayTrips[index].name,
-              duration: displayTrips[index].duration,
-              tripType: displayTrips[index].tripType,
-              season: displayTrips[index].season,
-              id: displayTrips[index].id,
-            );
-          },
-          itemCount: displayTrips.length,
-        ),
+        body: DisplayTripList(trips: displayTrips),
       ),
     );
   }

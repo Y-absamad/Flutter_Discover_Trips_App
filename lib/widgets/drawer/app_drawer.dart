@@ -1,14 +1,43 @@
 import 'package:flutter/material.dart';
-import 'build_list_title.dart';
-import 'package:discover_trips/utils/app_router.dart';
 
-class AppDrawer extends StatelessWidget {
-  const AppDrawer({super.key});
+import 'build_list_title_switch.dart';
+
+class AppDrawer extends StatefulWidget {
+  final Function saveFilters;
+  final Map<String, bool> currentFilters;
+  const AppDrawer(
+      {super.key, required this.saveFilters, required this.currentFilters});
+
+  @override
+  State<AppDrawer> createState() => _AppDrawerState();
+}
+
+class _AppDrawerState extends State<AppDrawer> {
+  late bool isInSummer;
+  late bool isInWinter;
+  late bool isForFamilies;
+
+  void saveFilterChanges() {
+    final selectedFilters = {
+      'summer': isInSummer,
+      'winter': isInWinter,
+      'family': isForFamilies,
+    };
+    widget.saveFilters(selectedFilters);
+  }
+
+  @override
+  void initState() {
+    isInSummer = widget.currentFilters['summer']!;
+    isInWinter = widget.currentFilters['winter']!;
+    isForFamilies = widget.currentFilters['family']!;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: 260,
+      width: 300,
       child: Column(
         children: [
           Container(
@@ -21,17 +50,40 @@ class AppDrawer extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineLarge,
             ),
           ),
-          BuildListTitle(
-            onTap: () =>
-                Navigator.pushReplacementNamed(context, AppRoute.homeScreen),
-            title: '    الرحلات',
-            icon: Icons.card_travel,
-          ),
-          BuildListTitle(
-            onTap: () => Navigator.pushReplacementNamed(context, AppRoute.filtersScreen),
-            title: '    الفلترة',
-            icon: Icons.filter_list,
-          ),
+          const SizedBox(height: 30),
+          buildListTitleSwitch(
+              context: context,
+              title: 'الرحلات الصيفية',
+              subtitle: 'اظهار الرحلات في فصل الصيف فقط',
+              currentValue: isInSummer,
+              updateValue: (newValue) {
+                setState(() {
+                  isInSummer = newValue;
+                });
+                saveFilterChanges();
+              }),
+          buildListTitleSwitch(
+              context: context,
+              title: 'الرحلات الشتوية',
+              subtitle: 'اظهار الرحلات في فصل الشتاء فقط',
+              currentValue: isInWinter,
+              updateValue: (newValue) {
+                setState(() {
+                  isInWinter = newValue;
+                });
+                saveFilterChanges();
+              }),
+          buildListTitleSwitch(
+              context: context,
+              title: 'الرحلات العائلية',
+              subtitle: 'اظهار الرحلات العائلية فقط',
+              currentValue: isForFamilies,
+              updateValue: (newValue) {
+                setState(() {
+                  isForFamilies = newValue;
+                });
+                saveFilterChanges();
+              }),
         ],
       ),
     );

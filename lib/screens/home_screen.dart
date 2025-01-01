@@ -1,14 +1,21 @@
-import 'package:discover_trips/screens/all_trips_screen.dart';
+import 'package:discover_trips/screens/views/all_trips.dart';
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
-import '../screens/categories_screen.dart';
+import 'views/categories_screen.dart';
 import '../widgets/drawer/app_drawer.dart';
-import 'favorites_screen.dart';
+import 'views/favorites_trips.dart';
 
 class HomeScreen extends StatefulWidget {
   final List<Trip> favoriteTrips;
   final List<Trip> allTrips;
-  const HomeScreen({super.key, required this.favoriteTrips, required this.allTrips});
+  final Function saveFilters;
+  final Map<String, bool> currentFilters;
+  const HomeScreen(
+      {super.key,
+      required this.favoriteTrips,
+      required this.allTrips,
+      required this.saveFilters,
+      required this.currentFilters});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -38,8 +45,11 @@ class _HomeScreenState extends State<HomeScreen> {
             _titles[_selectedIndex],
             style: Theme.of(context).textTheme.headlineLarge,
           ),
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.light_mode))],
         ),
-        drawer: AppDrawer(),
+        drawer: AppDrawer(
+            saveFilters: widget.saveFilters,
+            currentFilters: widget.currentFilters),
         body: currentScreen,
         bottomNavigationBar: BottomNavigationBar(
           onTap: (value) {

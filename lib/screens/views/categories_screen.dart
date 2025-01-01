@@ -1,7 +1,7 @@
 import 'package:discover_trips/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 
-import '../repository/category_repository.dart';
+import '../../repository/category_repository.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});

@@ -7,7 +7,6 @@ class AppRoute {
   static const String categoryTripsScreen = '/categoryTripsScreen';
   static const String tripDetailsScreen = '/tripDetailsScreen';
   static const String favoritesScreen = '/favoritesScreen';
-  static const String filtersScreen = '/filtersScreen';
 
   // static final Map<String, WidgetBuilder> appRoutes = {
   //   tapsScreen: (context) => TapsScreen(),
