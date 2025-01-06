@@ -1,22 +1,24 @@
-
 import '../models/trip.dart';
 import '../repository/trip_repository.dart';
 
 class TripsManager {
-  List<Trip> _allTrips;
-  final TripRepository _tripRepository;
+  late List<Trip> _allTrips;
+  late final TripRepository _tripRepository;
+
   Map<String, bool> _currentFilters = {
     'summer': false,
     'winter': false,
     'family': false,
   };
 
-  Map<String , bool> get currentFilters => _currentFilters;
+  TripsManager({required allTrips, required TripRepository tripRepository}) {
+    _tripRepository = tripRepository;
+    _allTrips = allTrips;
+  }
 
-  TripsManager({ required allTrips ,required TripRepository tripRepository})
-      : _tripRepository = tripRepository , _allTrips = allTrips ;
+  Map<String, bool> get currentFilters => _currentFilters;
 
-  List<Trip> get allTris => _allTrips;    
+  List<Trip> get allTris => _allTrips;
 
   void saveCurrentFilters(Map<String, bool> filterData) {
     _currentFilters = filterData;
@@ -37,12 +39,12 @@ class TripsManager {
     }).toList();
   }
 
-  void updateFilterChanges(Map<String, bool> filterData){
+  void updateFilterChanges(Map<String, bool> filterData) {
     saveCurrentFilters(filterData);
     _allTrips = getFilteredTrips();
   }
 
-  Trip getTrip(String id) {
+  Trip getTrip(int id) {
     return _allTrips.firstWhere((trip) => id == trip.id);
   }
 }

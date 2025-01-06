@@ -10,16 +10,16 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //DisplayTripList(trips: favoriteTrips , emptyMessage:'لا توجد رحلات مفضلة بعد');
     return ListView.builder(
       itemBuilder: (context, index) {
         return FavoriteCardItem(
           imageUrl: favoriteTrips[index].imageUrl,
           name: favoriteTrips[index].name,
-          duration: favoriteTrips[index].duration,
+          location: favoriteTrips[index].loction,
           tripType: favoriteTrips[index].tripType,
           season: favoriteTrips[index].season,
           id: favoriteTrips[index].id,
+          informaion: favoriteTrips[index].informaion,
         );
       },
       itemCount: favoriteTrips.length,

@@ -2,7 +2,7 @@ import 'package:discover_trips/utils/app_router.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String id;
+  final int id;
   final String name;
   final String imageUrl;
   const CategoryItem({

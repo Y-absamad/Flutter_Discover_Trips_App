@@ -1,26 +1,28 @@
 class Trip {
-  final String id;
-  final List<String> categories;
   final String name;
+  final int id;
+  final int categoryId;
   final String imageUrl;
+  final String informaion;
   final List<String> activities;
   final List<String> program;
-  final int duration;
-  final Season season;
-  final TripType tripType;
+  final String loction;
+  final String season;
+  final String tripType;
   final bool isInSummer;
   final bool isInWinter;
   final bool isForFamilies;
 
   
-  const Trip({
-    required this.id,
-    required this.categories,
+  const Trip( {
     required this.name,
+    required this.id,
+    required this.categoryId,
     required this.imageUrl,
+    required this.informaion,
     required this.activities,
     required this.program,
-    required this.duration,
+    required this.loction,
     required this.season,
     required this.tripType,
     required this.isInSummer,
@@ -29,19 +31,3 @@ class Trip {
   });
 }
 
-enum Season {
-  winter,
-  summer,
-  spring,
-  autumn,
-}
-
-enum TripType {
-  adventure,
-  family,
-  romantic,
-  cultural,
-  recovery,
-  therapy,
-  activities,
-}

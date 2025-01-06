@@ -1,3 +1,4 @@
+import 'package:discover_trips/repository/category_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import '../viewmodels/favorite_manager.dart';
@@ -5,6 +6,7 @@ import '../viewmodels/trips_manager.dart';
 import '../models/trip.dart';
 import '../utils/app_router.dart';
 import '../repository/trip_repository.dart';
+import 'viewmodels/category_manager.dart';
 
 
 void main() {
@@ -20,7 +22,9 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final TripRepository _tripRepository = TripRepository();
+  final CategoryRepository _categoryRepository = CategoryRepository();
   late TripsManager _tripsManager;
+  late CategoryManager _categoryManager;
   late List<Trip> tripsData;
   late List<Trip> _allTrips;
   late final FavoriteManager _favoriteManager;
@@ -35,6 +39,7 @@ class _MyAppState extends State<MyApp> {
         TripsManager(allTrips: _allTrips, tripRepository: _tripRepository);
     _favoriteManager =
         FavoriteManager(favoriteTrips: _favoriteTrips, allTrips: _allTrips);
+    _categoryManager = CategoryManager(categoryRepository: _categoryRepository , allTrips: _tripsManager.allTris);  
   }
 
   void _updateFilterChanges(Map<String, bool> filterData) {
@@ -43,7 +48,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void _updateFavoritesTrips(String tripId) {
+  void _updateFavoritesTrips(int tripId) {
     setState(() {
       _favoriteManager.updateFavoritesTrips(tripId);
     });
@@ -112,6 +117,7 @@ class _MyAppState extends State<MyApp> {
         updateFilterChanges: _updateFilterChanges,
         updateFavoritesTrips: _updateFavoritesTrips,
         favoriteManager: _favoriteManager,
+        categoryManager: _categoryManager,
       ),
     );
   }

@@ -6,11 +6,11 @@ class FavoriteManager {
 
   FavoriteManager({required this.favoriteTrips, required this.allTrips});
 
-  bool isFavorite(String id) {
+  bool isFavorite(int id) {
     return favoriteTrips.any((trip) => trip.id == id);
   }
 
-  int tripIndex(String id) {
+  int tripIndex(int id) {
     return favoriteTrips.indexWhere((trip) => trip.id == id);
   }
 
@@ -18,11 +18,11 @@ class FavoriteManager {
     favoriteTrips.removeAt(index);
   }
 
-  void addTrip(String id) {
+  void addTrip(int id) {
     favoriteTrips.add(allTrips.firstWhere((trip) => trip.id == id));
   }
 
-  void updateFavoritesTrips(String tripId) {
+  void updateFavoritesTrips(int tripId) {
     final int index = tripIndex(tripId);
     if (index >= 0) {
       removeTrip(index);

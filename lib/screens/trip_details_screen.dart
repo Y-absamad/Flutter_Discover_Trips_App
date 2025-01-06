@@ -22,7 +22,7 @@ class TripDetailsScreen extends StatefulWidget {
 class _TripDetailsScreenState extends State<TripDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final tripId = ModalRoute.of(context)!.settings.arguments as String;
+    final tripId = ModalRoute.of(context)!.settings.arguments as int;
     final Trip selectedTrip = widget.tripsManager.getTrip(tripId);
 
     return SafeArea(

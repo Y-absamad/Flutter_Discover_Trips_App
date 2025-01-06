@@ -24,10 +24,11 @@ class DisplayTripList extends StatelessWidget {
     }
     return ListView.builder(
       itemBuilder: (context, index) {
+        // check trip and favorite 
         return TripItem(
           imageUrl: trips[index].imageUrl,
           name: trips[index].name,
-          duration: trips[index].duration,
+          informaion: trips[index].informaion,
           tripType: trips[index].tripType,
           season: trips[index].season,
           id: trips[index].id,

@@ -1,4 +1,6 @@
+import 'package:discover_trips/repository/category_repository.dart';
 import 'package:discover_trips/screens/views/all_trips.dart';
+import 'package:discover_trips/viewmodels/category_manager.dart';
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
 import 'views/categories_screen.dart';
@@ -10,12 +12,14 @@ class HomeScreen extends StatefulWidget {
   final List<Trip> allTrips;
   final Function saveFilters;
   final Map<String, bool> currentFilters;
+  final CategoryManager categoryManager;
   const HomeScreen({
     super.key,
     required this.favoriteTrips,
     required this.allTrips,
     required this.saveFilters,
     required this.currentFilters,
+    required this.categoryManager
   });
 
   @override
@@ -30,11 +34,11 @@ class _HomeScreenState extends State<HomeScreen> {
     'جميع الرحلات',
     'الرحلات المفضلة'
   ];
-
+  
   @override
   Widget build(BuildContext context) {
     Widget currentScreen = _selectedIndex == 0
-        ? CategoriesScreen()
+        ? CategoriesScreen(categoryManager: widget.categoryManager)
         : _selectedIndex == 1
             ? AllTripsScreen(allTrips: widget.allTrips)
             : FavoritesScreen(favoriteTrips: widget.favoriteTrips);

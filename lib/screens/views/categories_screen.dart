@@ -1,10 +1,11 @@
+import 'package:discover_trips/viewmodels/category_manager.dart';
 import 'package:discover_trips/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 
-import '../../repository/category_repository.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  final CategoryManager categoryManager;
+  const CategoriesScreen({super.key, required this.categoryManager});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CategoriesScreen extends StatelessWidget {
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
       ),
-      children: categoryRepository
+      children: categoryManager.fetchAllCategories
           .map(
             (catagoryData) => CategoryItem(
               id: catagoryData.id,

@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
-import '../models/trip.dart';
 import '../utils/app_router.dart';
 
 class FavoriteCardItem extends StatelessWidget {
-  final String id;
+  final int id;
   final String imageUrl;
   final String name;
-  final int duration;
-  final TripType tripType;
-  final Season season;
+  final String informaion;
+  final String tripType;
+  final String season;
+  final String location;
   const FavoriteCardItem({
     super.key,
     required this.id,
     required this.imageUrl,
     required this.name,
-    required this.duration,
+    required this.informaion,
     required this.tripType,
     required this.season,
+    required this.location
   });
 
   void selectedTrip(BuildContext context) {
@@ -76,23 +77,23 @@ class FavoriteCardItem extends StatelessWidget {
                     Icon(Icons.location_on, color: Colors.blue, size: 18),
                     SizedBox(width: 5),
                     Text(
-                      'الموقع: مصر', // استبدل `location` بمتغير الموقع
+                      location, // استبدل `location` بمتغير الموقع
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
                 SizedBox(height: 10),
                 // المدة
-                Row(
-                  children: [
-                    Icon(Icons.today, color: Colors.amber, size: 18),
-                    SizedBox(width: 5),
-                    Text(
-                      '$duration أيام',
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     Icon(Icons.today, color: Colors.amber, size: 18),
+                //     SizedBox(width: 5),
+                //     Text(
+                //       '',
+                //       style: Theme.of(context).textTheme.bodyMedium,
+                //     ),
+                //   ],
+                // ),
                 SizedBox(height: 10),
                 // الموسم
                 Row(
@@ -100,7 +101,7 @@ class FavoriteCardItem extends StatelessWidget {
                     Icon(Icons.sunny, color: Colors.amber, size: 18),
                     SizedBox(width: 5),
                     Text(
-                      'الشتاء',
+                      season,
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],

@@ -1,55 +1,24 @@
 import 'package:flutter/material.dart';
-import '../models/trip.dart';
 import '../utils/app_router.dart';
 
 class TripItem extends StatelessWidget {
-  final String id;
+  final int id;
   final String imageUrl;
   final String name;
-  final int duration;
-  final TripType tripType;
-  final Season season;
+  final String informaion;
+  final String tripType;
+  final String season;
   const TripItem({
     super.key,
     required this.id,
     required this.imageUrl,
     required this.name,
-    required this.duration,
+    required this.informaion,
     required this.tripType,
     required this.season,
   });
 
-  String get seasonText {
-    switch (season) {
-      case Season.winter:
-        return 'شتاء';
-      case Season.summer:
-        return 'صيف';
-      case Season.spring:
-        return 'ربيع';
-      case Season.autumn:
-        return 'خريف';
-    }
-  }
-
-  String get typeText {
-    switch (tripType) {
-      case TripType.adventure:
-        return 'مغامرة';
-      case TripType.family:
-        return 'عائلية';
-      case TripType.romantic:
-        return 'رومانسية';
-      case TripType.cultural:
-        return 'ثقافية';
-      case TripType.recovery:
-        return 'استجمام';
-      case TripType.therapy:
-        return 'علاجية';
-      case TripType.activities:
-        return 'أنشطة';
-    }
-  }
+ 
 
   void selectedTrip(BuildContext context) {
     Navigator.of(context).pushNamed(
@@ -110,25 +79,25 @@ class TripItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    spacing: 6,
-                    children: [
-                      Icon(Icons.today, color: Colors.amber),
-                      Text('$duration أيام'),
-                    ],
-                  ),
+                  // Row(
+                  //   spacing: 6,
+                  //   children: [
+                  //     Icon(Icons.today, color: Colors.amber),
+                  //     Text('$duration أيام'),
+                  //   ],
+                  // ),
                   Row(
                     spacing: 6,
                     children: [
                       Icon(Icons.sunny, color: Colors.amber),
-                      Text(seasonText),
+                      Text(season),
                     ],
                   ),
                   Row(
                     spacing: 6,
                     children: [
                       Icon(Icons.family_restroom, color: Colors.amber),
-                      Text(typeText),
+                      Text(tripType),
                     ],
                   ),
                 ],

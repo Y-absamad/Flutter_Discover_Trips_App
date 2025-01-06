@@ -44,23 +44,27 @@
 //   }
 // }
 
+import 'package:discover_trips/viewmodels/category_manager.dart';
 import 'package:discover_trips/widgets/display_trip_list.dart';
 import 'package:flutter/material.dart';
 import '../../models/trip.dart';
 
 class TripsByCategoryScreen extends StatelessWidget {
-  final List<Trip> allTrips;
-  const TripsByCategoryScreen({super.key, required this.allTrips});
+  final CategoryManager categoryManager;
+  const TripsByCategoryScreen({super.key, required this.categoryManager});
 
   @override
   Widget build(BuildContext context) {
-    final argument = ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-    final String categoryId = argument['id']!;
-    final String categoryTitle = argument['name']!;
+    final argument = ModalRoute.of(context)!.settings.arguments as Map<String, Object>;
+    final int categoryId = argument['id']! as int;
+    final String categoryTitle = argument['name']! as String;
+    //print('333333333333333333333333333333333333$categoryId');
 
-    final displayTrips = allTrips.where((trip) {
-      return trip.categories.contains(categoryId);
-    }).toList();
+    //add function here
+    List<Trip> displayTrips = categoryManager.getTripsByCategory(categoryId);
+    // List<Trip> displayTrips = allTrips.where((trip) {
+    //   return trip.categoryId == categoryId;
+    // }).toList();
 
     return SafeArea(
       child: Scaffold(
