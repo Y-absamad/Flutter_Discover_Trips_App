@@ -14,7 +14,9 @@ ListTile buildListTitleSwitch({
       ),
       subtitle: Text(
         subtitle,
-        style: Theme.of(context).textTheme.displaySmall,
+        style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+          fontSize: 12,
+        ),
       ),
       trailing: Switch(
         value: currentValue,

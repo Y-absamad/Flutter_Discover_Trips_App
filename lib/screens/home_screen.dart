@@ -1,11 +1,11 @@
-import 'package:discover_trips/repository/category_repository.dart';
+import 'package:discover_trips/widgets/home/bottom_navigation_bar.dart';
 import 'package:discover_trips/screens/views/all_trips.dart';
 import 'package:discover_trips/viewmodels/category_manager.dart';
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
 import 'views/categories_screen.dart';
 import '../widgets/drawer/app_drawer.dart';
-import 'views/favorites_trips.dart';
+import 'views/favorites_trips_list.dart';
 
 class HomeScreen extends StatefulWidget {
   final List<Trip> favoriteTrips;
@@ -19,7 +19,7 @@ class HomeScreen extends StatefulWidget {
     required this.allTrips,
     required this.saveFilters,
     required this.currentFilters,
-    required this.categoryManager
+    required this.categoryManager,
   });
 
   @override
@@ -34,15 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
     'جميع الرحلات',
     'الرحلات المفضلة'
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     Widget currentScreen = _selectedIndex == 0
-        ? CategoriesScreen(categoryManager: widget.categoryManager)
+        ? CategoriesScreen(
+            categoryManager: widget.categoryManager,
+            allTrips: widget.allTrips,
+          )
         : _selectedIndex == 1
             ? AllTripsScreen(allTrips: widget.allTrips)
             : FavoritesScreen(favoriteTrips: widget.favoriteTrips);
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -50,46 +52,20 @@ class _HomeScreenState extends State<HomeScreen> {
             _titles[_selectedIndex],
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.light_mode))],
         ),
         drawer: AppDrawer(
           saveFilters: widget.saveFilters,
           currentFilters: widget.currentFilters,
         ),
         body: currentScreen,
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (value) {
+        //bottomNavigationBar: bottomNavigationBar(context),
+        bottomNavigationBar: CustomBottomNavigationBar(
+          selectedIndex: _selectedIndex,
+          onItemTapped: (value) {
             setState(() {
               _selectedIndex = value;
             });
           },
-          currentIndex: _selectedIndex,
-          backgroundColor: Theme.of(context).primaryColorLight,
-          selectedItemColor: Colors.amber,
-          selectedLabelStyle: const TextStyle(
-            fontSize: 16,
-            fontFamily: 'ELMessiri',
-            fontWeight: FontWeight.bold,
-          ),
-          unselectedLabelStyle: const TextStyle(
-            fontSize: 14,
-            fontFamily: 'ELMessiri',
-          ),
-          unselectedItemColor: Colors.black54,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard),
-              label: 'التصنيفات',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.view_agenda),
-              label: 'الرحلات',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'المفضلة',
-            ),
-          ],
         ),
       ),
     );

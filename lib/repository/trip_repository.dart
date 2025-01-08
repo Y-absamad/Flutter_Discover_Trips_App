@@ -11,7 +11,7 @@ class TripRepository {
         categoryId: 1,
         imageUrl:
             "https://images.pexels.com/photos/544067/pexels-photo-544067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "جبال الألب هي سلسلة جبال شهيرة في أوروبا، تمتد عبر سويسرا وفرنسا وإيطاليا والنمسا. تشتهر بمناظرها الطبيعية الخلابة وتوفر أنشطة متنوعة مثل التسلق والتزلج. تعتبر وجهة مثالية لمحبي الطبيعة والمغامرات.",
         activities: [
           "تسلق الجبال مع مرشد محترف.",
@@ -40,7 +40,7 @@ class TripRepository {
         categoryId: 1,
         imageUrl:
             "https://gate.ahram.org.eg/daily/Media/News/2021/7/30/2021-637632787739542178-954.jpg",
-        informaion:
+        description:
             "جبل البحر الأحمر يقع في مصر، تحديدًا في الغردقة ودهب. يتميز بمناظره الطبيعية الفريدة ويوفر مزيجًا من المغامرات والاسترخاء. يعتبر وجهة مثالية لعشاق الطبيعة والتأمل.",
         activities: [
           "استكشاف الكهوف الجبلية.",
@@ -69,7 +69,7 @@ class TripRepository {
         categoryId: 1,
         imageUrl:
             "https://images.pexels.com/photos/26924196/pexels-photo-26924196/free-photo-of-an-elephant-in-a-field.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "جبل كليمنجارو يقع في تنزانيا بأفريقيا، وهو أعلى قمة جبلية في القارة. يتميز بتضاريسه المتنوعة، من الغابات إلى القمم الثلجية، ويوفر تجربة فريدة لمحبي المغامرات والطبيعة.",
         activities: [
           "تسلق القمم الثلجية.",
@@ -98,7 +98,7 @@ class TripRepository {
         categoryId: 1,
         imageUrl:
             "https://images.pexels.com/photos/15360706/pexels-photo-15360706/free-photo-of-landscape-of-palm-trees-and-the-atlas-mountains-in-marrakech-morocco.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "جبال أطلس تقع في المغرب، وتشتهر بمناظرها الطبيعية الخلابة وثقافتها البربرية الغنية. توفر مزيجًا من المغامرات والثقافة، مع أنشطة مثل التخييم وزيارة القرى البربرية.",
         activities: [
           "التجول في القرى البربرية الجبلية.",
@@ -127,7 +127,7 @@ class TripRepository {
         categoryId: 1,
         imageUrl:
             "https://images.pexels.com/photos/3408354/pexels-photo-3408354.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "جبل فوجي يقع في اليابان، وهو أحد أشهر الجبال في العالم. يتميز بمناظره الطبيعية الساحرة والثقافة اليابانية الفريدة. يوفر تجربة مميزة لمحبي المغامرات والاكتشاف.",
         activities: [
           "تسلق الجبل مع التوقف في الأكواخ التقليدية.",
@@ -156,7 +156,7 @@ class TripRepository {
         categoryId: 2,
         imageUrl:
             "https://aerialbvi.com/wp-content/uploads/2024/04/Antigua-and-Barbuda-1024x576.jpg",
-        informaion:
+        description:
             "بحر الكاريبي يقع في جزر الكاريبي مثل جزر البهاما وجامايكا. يتميز بمياهه الصافية وشواطئه الرملية، ويوفر مزيجًا من الاسترخاء والمغامرات.",
         activities: [
           "السباحة في المياه الصافية.",
@@ -185,7 +185,7 @@ class TripRepository {
         categoryId: 2,
         imageUrl:
             "https://cdn.trailfinders.com/i9qcbovkdb_shutterstock_251998594_1500x1500.jpg?width=600",
-        informaion:
+        description:
             "البحر الأحمر يقع في مصر، تحديدًا في الغردقة وشرم الشيخ. يتميز بمياهه الدافئة والشعاب المرجانية الخلابة، ويوفر أنشطة متنوعة للاسترخاء والمغامرات.",
         activities: [
           "الغوص لاستكشاف الكائنات البحرية.",
@@ -214,7 +214,7 @@ class TripRepository {
         categoryId: 2,
         imageUrl:
             "https://images.pexels.com/photos/18638883/pexels-photo-18638883/free-photo-of-city-with-beach-on-sea-shore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "شاطئ ميامي يقع في الولايات المتحدة الأمريكية، ويشتهر برماله الذهبية وحيويته. يعتبر وجهة مثالية للاسترخاء والترفيه.",
         activities: [
           "حمامات الشمس على الشاطئ.",
@@ -243,7 +243,7 @@ class TripRepository {
         categoryId: 2,
         imageUrl:
             "https://images.pexels.com/photos/2711640/pexels-photo-2711640.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "شاطئ بالي يقع في إندونيسيا، ويشتهر بشواطئه المخفية وطبيعته الخلابة. يعتبر وجهة مثالية للاسترخاء والاكتشاف.",
         activities: [
           "زيارة الشواطئ المخفية (مثل شاطئ نوسا دوا).",
@@ -272,7 +272,7 @@ class TripRepository {
         categoryId: 2,
         imageUrl:
             "https://images.pexels.com/photos/185808/pexels-photo-185808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "شاطئ إيبيزا يقع في إسبانيا، ويشتهر بحفلاته الليلية وشواطئه الرملية. يعتبر وجهة مثالية للاسترخاء والترفيه.",
         activities: [
           "قضاء الوقت في الشواطئ الرملية.",
@@ -301,7 +301,7 @@ class TripRepository {
         categoryId: 3,
         imageUrl:
             "https://images.pexels.com/photos/8784371/pexels-photo-8784371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "بحيرة بايكال تقع في سيبيريا، روسيا، وهي أعمق بحيرة في العالم. تشتهر بجمالها الطبيعي الفريد وتوفر أنشطة متنوعة في الصيف والشتاء.",
         activities: [
           "التزلج على الجليد (في الشتاء).",
@@ -330,7 +330,7 @@ class TripRepository {
         categoryId: 3,
         imageUrl:
             "https://images.pexels.com/photos/29848849/pexels-photo-29848849/free-photo-of-picturesque-lake-como-shoreline-in-italy.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "بحيرة كومو تقع في إيطاليا، وتشتهر بجمالها الطبيعي وقصورها التاريخية. تعتبر وجهة مثالية للاسترخاء والاكتشاف.",
         activities: [
           "ركوب القوارب الكلاسيكية.",
@@ -359,7 +359,7 @@ class TripRepository {
         categoryId: 3,
         imageUrl:
             "https://i.guim.co.uk/img/media/f05610a38c1366ea31d98d30047fe0117fe108c3/0_0_4495_2697/master/4495.jpg?width=1200&quality=85&auto=format&fit=max&s=7b1f77db704192316f0ec684bb316dbe",
-        informaion:
+        description:
             "بحيرة تيتكاكا تقع بين بيرو وبوليفيا، وهي أعلى بحيرة صالحة للملاحة في العالم. تشتهر بجزرها العائمة وثقافتها الغنية.",
         activities: [
           "زيارة الجزر العائمة.",
@@ -388,7 +388,7 @@ class TripRepository {
         categoryId: 3,
         imageUrl:
             "https://images.pexels.com/photos/5662226/pexels-photo-5662226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "بحيرة لوخ نيس تقع في اسكتلندا، وتشتهر بأسطورة وحش لوخ نيس. تعتبر وجهة مثالية لعشاق الغموض والطبيعة.",
         activities: [
           "البحث عن وحش لوخ نيس.",
@@ -417,7 +417,7 @@ class TripRepository {
         categoryId: 3,
         imageUrl:
             "https://i0.wp.com/jetsettingfools.com/wp-content/uploads/2016/10/Tumbling-waterfall-flows-beneath-path-Plitvice-Lakes-in-Autumn-Croatia.jpg?resize=1024%2C683&ssl=1",
-        informaion:
+        description:
             "بحيرة بيليتشر تقع في كرواتيا، وتشتهر بشلالاتها الطبيعية وهدوئها. تعتبر وجهة مثالية للاسترخاء والاستكشاف.",
         activities: [
           "التنزه بين الشلالات المحيطة.",
@@ -446,7 +446,7 @@ class TripRepository {
         categoryId: 4,
         imageUrl:
             "https://cdn.alweb.com/thumbs/jordanencyclopedia/article/fit710x532/%D8%A3%D9%87%D9%85-%D8%A7%D9%84%D9%86%D8%B5%D8%A7%D8%A6%D8%AD-%D9%84%D8%B1%D8%AD%D9%84%D8%A9-%D9%88%D8%A7%D8%AF%D9%8A-%D8%B1%D9%85.jpeg",
-        informaion:
+        description:
             "صحراء وادي رم تقع في الأردن، وتشتهر بمناظرها الصحراوية الخلابة وتضاريسها الفريدة. تعتبر وجهة مثالية للمغامرات والاستكشاف.",
         activities: [
           "ركوب الجمال.",
@@ -475,7 +475,7 @@ class TripRepository {
         categoryId: 4,
         imageUrl:
             "https://mediaaws.almasryalyoum.com/news/verylarge/2022/12/20/1981787_0.jpeg",
-        informaion:
+        description:
             "صحراء سيوة تقع في مصر، وتشتهر بواحاتها الخلابة والينابيع الساخنة. تعتبر وجهة مثالية للاسترخاء والاستكشاف.",
         activities: [
           "زيارة ينابيع المياه الساخنة.",
@@ -504,7 +504,7 @@ class TripRepository {
         categoryId: 4,
         imageUrl:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSESYyfXWtyZa-H-5UzxiA08nT-C6CEBR9J0g&s",
-        informaion:
+        description:
             "صحراء أتاكاما تقع في تشيلي، وتشتهر بظواهرها الطبيعية الفريدة مثل السماء الصافية والوديان القمرية. تعتبر وجهة مثالية للاستكشاف.",
         activities: [
           "مشاهدة السماء ليلاً (أفضل مكان لرؤية النجوم).",
@@ -533,7 +533,7 @@ class TripRepository {
         categoryId: 4,
         imageUrl:
             "https://images.takeshape.io/86ce9525-f5f2-4e97-81ba-54e8ce933da7/dev/1bd59b49-2e5a-48c7-abb5-1f11e47a6e25/433_Joshua%20Tree_2.jpg?auto=compress%2Cformat&w=1600",
-        informaion:
+        description:
             "صحراء موهافي تقع في الولايات المتحدة الأمريكية، وتشتهر بتضاريسها الصحراوية الفريدة. تعتبر وجهة مثالية للمغامرات والاستكشاف.",
         activities: [
           "التخييم في المناطق الصحراوية.",
@@ -562,7 +562,7 @@ class TripRepository {
         categoryId: 4,
         imageUrl:
             "https://mufhras.com/wp-content/uploads/2022/08/images-2022-08-06T013023.700.jpeg",
-        informaion:
+        description:
             "صحراء الربع الخالي تقع بين السعودية وعُمان والإمارات، وهي أكبر صحراء رملية في العالم. تعتبر وجهة مثالية للمغامرات.",
         activities: [
           "التزلج على الكثبان الرملية.",
@@ -591,7 +591,7 @@ class TripRepository {
         categoryId: 5,
         imageUrl:
             "https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "غابة الأمازون تقع في أمريكا الجنوبية (البرازيل وبيرو وكولومبيا وغيرها)، وهي أكبر غابة مطيرة في العالم. تعتبر وجهة مثالية للاستكشاف والمغامرات.",
         activities: [
           "جولات بالقوارب لاستكشاف الأنهار.",
@@ -620,7 +620,7 @@ class TripRepository {
         categoryId: 5,
         imageUrl:
             "https://www.nottinghamworld.com/jpim-static/image/2024/02/29/11/27/Statue_of_Robin_Hood_in_Sherwood_Forest_%289464%29.jpg?trim=0,0,0,0&crop=&width=640&quality=65",
-        informaion:
+        description:
             "غابة شيروود تقع في إنجلترا، وتشتهر بأسطورة روبن هود وأشجارها التاريخية. تعتبر وجهة مثالية للاسترخاء والاستكشاف.",
         activities: [
           "التنزه بين الأشجار التاريخية.",
@@ -649,7 +649,7 @@ class TripRepository {
         categoryId: 5,
         imageUrl:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLnXWESrDfT0sQsOy8Rz_7GdAwG_oi7ZKsjA&s",
-        informaion:
+        description:
             "غابة مونتفيردي تقع في كوستاريكا، وتشتهر بغاباتها السحابية والحياة البرية المتنوعة. تعتبر وجهة مثالية لعشاق الطبيعة.",
         activities: [
           "المشي على الجسور المعلقة.",
@@ -678,7 +678,7 @@ class TripRepository {
         categoryId: 5,
         imageUrl:
             "https://images.squarespace-cdn.com/content/5c471817a2772c47f0e12e79/1673002637728-5ORGHEAE8NYMITXJJHBS/The-Mysterious-Black-Forest--Exploring-Its-Secrets-.jpg?content-type=image%2Fjpeg",
-        informaion:
+        description:
             "غابة بلاك فورست تقع في ألمانيا، وتشتهر بمناظرها الطبيعية الخلابة وحلوياتها التقليدية. تعتبر وجهة مثالية للاسترخاء والاستكشاف.",
         activities: [
           "التنزه في الممرات الجبلية.",
@@ -707,7 +707,7 @@ class TripRepository {
         categoryId: 5,
         imageUrl:
             "https://cnn-arabic-images.cnn.io/cloudinary/image/upload/w_780,c_scale,q_auto/cnnarabic/2018/10/19/images/114068.avif",
-        informaion:
+        description:
             "غابة باندياجارا تقع في مالي، وتشتهر بمنحدراتها الجبلية وثقافتها التقليدية. تعتبر وجهة مثالية للاستكشاف الثقافي والطبيعي.",
         activities: [
           "زيارة القرى التقليدية للسكان المحليين.",
@@ -736,7 +736,7 @@ class TripRepository {
         categoryId: 6,
         imageUrl:
             "https://images.pexels.com/photos/306381/pexels-photo-306381.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "شلالات نياجرا تقع على الحدود بين الولايات المتحدة وكندا، وتشتهر بجمالها الطبيعي وقوتها المائية. تعتبر وجهة مثالية للاسترخاء والاستكشاف.",
         activities: [
           "ركوب القوارب بالقرب من الشلالات.",
@@ -765,7 +765,7 @@ class TripRepository {
         categoryId: 6,
         imageUrl:
             "https://images.pexels.com/photos/3672776/pexels-photo-3672776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "شلالات إجوازو تقع على الحدود بين الأرجنتين والبرازيل، وتشتهر بجمالها الطبيعي وقوتها المائية. تعتبر وجهة مثالية للمغامرات والاستكشاف.",
         activities: [
           "المشي في المسارات الطبيعية المحيطة بالشلالات.",
@@ -794,7 +794,7 @@ class TripRepository {
         categoryId: 6,
         imageUrl:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz2qhSNcif-2u-5gmtFWETf5c_I_-1BPBTQA&s",
-        informaion:
+        description:
             "شلالات أنجل تقع في فنزويلا، وهي أعلى شلالات في العالم. تشتهر بجمالها الطبيعي وتوفر فرصًا رائعة للاستكشاف.",
         activities: [
           "الطيران فوق الشلالات.",
@@ -823,7 +823,7 @@ class TripRepository {
         categoryId: 6,
         imageUrl:
             "https://images.pexels.com/photos/27878405/pexels-photo-27878405/free-photo-of-an-aerial-view-of-the-victoria-falls-in-zimbabwe.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "شلالات فيكتوريا تقع على الحدود بين زامبيا وزيمبابوي، وتشتهر بجمالها الطبيعي وقوتها المائية. تعتبر وجهة مثالية للاستكشاف.",
         activities: [
           "المشي على جسر Knife Edge Bridge.",
@@ -852,7 +852,7 @@ class TripRepository {
         categoryId: 6,
         imageUrl:
             "https://images.pexels.com/photos/6872865/pexels-photo-6872865.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "شلالات بان جيوك تقع على الحدود بين الصين وفيتنام، وتشتهر بجمالها الطبيعي وثقافتها المحلية. تعتبر وجهة مثالية للاستكشاف الثقافي والطبيعي.",
         activities: [
           "زيارة القرى القريبة من الشلالات.",
@@ -881,7 +881,7 @@ class TripRepository {
         categoryId: 7,
         imageUrl:
             "https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "جزيرة المالديف تقع في المحيط الهندي، وتشتهر بمياهها الزرقاء الصافية وشواطئها الرملية. تعتبر وجهة مثالية للاسترخاء والاستجمام.",
         activities: [
           "السباحة في المياه الزرقاء الصافية.",
@@ -910,7 +910,7 @@ class TripRepository {
         categoryId: 7,
         imageUrl:
             "https://images.pexels.com/photos/161815/santorini-oia-greece-water-161815.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "جزيرة سانتوريني تقع في اليونان، وتشتهر بمناظرها الخلابة وكنائسها البيضاء ذات القباب الزرقاء. تعتبر وجهة مثالية للاسترخاء والاستكشاف.",
         activities: [
           "مشاهدة غروب الشمس من منطقة أويا.",
@@ -939,7 +939,7 @@ class TripRepository {
         categoryId: 7,
         imageUrl:
             "https://smithway.org/wp-content/uploads/2022/12/shutterstock_518868568-pr-250417-Stone-arch-over-the-sea-at-the-rocky-coastline-on-Nusa-Penida-island-near-Bali-in-Indonesia.jpg",
-        informaion:
+        description:
             "جزيرة بالي تقع في إندونيسيا، وتشتهر بثقافتها الغنية ومناظرها الطبيعية الخلابة. تعتبر وجهة مثالية للاسترخاء والاستكشاف الثقافي.",
         activities: [
           "زيارة حقول الأرز المدرجة.",
@@ -968,7 +968,7 @@ class TripRepository {
         categoryId: 7,
         imageUrl:
             "https://images.pexels.com/photos/12987502/pexels-photo-12987502.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "جزيرة سيشل تقع في المحيط الهندي، وتشتهر بشواطئها ذات الرمال البيضاء ومياهها الفيروزية. تعتبر وجهة مثالية للاسترخاء والرومانسية.",
         activities: [
           "الاسترخاء على شواطئ الرمال البيضاء.",
@@ -997,7 +997,7 @@ class TripRepository {
         categoryId: 7,
         imageUrl:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8rWqdEoQITgnjxDcbNPcDRozlKbtM-HM5ww&s",
-        informaion:
+        description:
             "جزيرة هاواي تقع في الولايات المتحدة الأمريكية، وتشتهر ببراكينها النشطة وشواطئها الخلابة. تعتبر وجهة مثالية للمغامرات والاسترخاء.",
         activities: [
           "ركوب الأمواج.",
@@ -1026,7 +1026,7 @@ class TripRepository {
         categoryId: 8,
         imageUrl:
             "https://images.pexels.com/photos/356966/pexels-photo-356966.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        informaion:
+        description:
             "مدينة روما تقع في إيطاليا، وتشتهر بمعالمها التاريخية مثل الكولوسيوم ونافورة تريفي. تعتبر وجهة مثالية للاستكشاف الثقافي والتاريخي.",
         activities: [
           "زيارة الكولوسيوم.",
@@ -1055,7 +1055,7 @@ class TripRepository {
         categoryId: 8,
         imageUrl:
             "https://images.pexels.com/photos/18934668/pexels-photo-18934668/free-photo-of-ancient-luxor-temple-in-egypt.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-        informaion:
+        description:
             "مدينة الأقصر تقع في مصر، وتشتهر بمعابدها الفرعونية مثل الكرنك ووادي الملوك. تعتبر وجهة مثالية للاستكشاف التاريخي.",
         activities: [
           "زيارة معبد الكرنك.",
@@ -1084,7 +1084,7 @@ class TripRepository {
         categoryId: 8,
         imageUrl:
             "https://images.pexels.com/photos/1549326/pexels-photo-1549326.jpeg?auto=compress&cs=tinysrgb&w=400",
-        informaion:
+        description:
             "مدينة إسطنبول تقع في تركيا، وتشتهر بمعالمها التاريخية مثل آيا صوفيا وقصر توبكابي. تعتبر وجهة مثالية للاستكشاف الثقافي والتاريخي.",
         activities: [
           "زيارة آيا صوفيا.",
@@ -1112,8 +1112,8 @@ class TripRepository {
         id: 39,
         categoryId: 8,
         imageUrl:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJgsQzzs4RQncX2FTxdIEZm_2inuMUyG2qBg&s",
-        informaion:
+            "https://i0.wp.com/awqattravel.com/wp-content/uploads/2024/02/%D9%85%D8%B1%D8%A7%D9%83%D8%B4-%D8%A7%D9%84%D9%85%D8%BA%D8%B1%D8%A8.jpg?fit=1024%2C640&ssl=1",
+        description:
             "مدينة مراكش تقع في المغرب، وتشتهر بأسواقها التقليدية ومعالمها الثقافية مثل جامع الفنا. تعتبر وجهة مثالية للاستكشاف الثقافي.",
         activities: [
           "زيارة جامع الفنا.",
@@ -1142,7 +1142,7 @@ class TripRepository {
         categoryId: 8,
         imageUrl:
             "https://images.pexels.com/photos/11759765/pexels-photo-11759765.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-        informaion:
+        description:
             "مدينة القدس تقع في فلسطين، وتشتهر بمعالمها الدينية والتاريخية مثل المسجد الأقصى وكنيسة القيامة. تعتبر وجهة مثالية للاستكشاف التاريخي والديني.",
         activities: [
           "زيارة المسجد الأقصى وقبة الصخرة.",

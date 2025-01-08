@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ListViewContainer extends StatelessWidget {
-  final double height;
+  //final double height;
   final int length;
   final IndexedWidgetBuilder itemBuilder;
   const ListViewContainer({
     super.key,
-    required this.height,
+    //required this.height,
     required this.length,
     required this.itemBuilder,
   });
@@ -14,7 +14,7 @@ class ListViewContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
+      //height: height,
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(

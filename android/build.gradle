@@ -1,3 +1,4 @@
+// إعدادات عامة لجميع المشاريع
 allprojects {
     repositories {
         google()
@@ -5,6 +6,7 @@ allprojects {
     }
 }
 
+// تحديد مجلد البناء
 rootProject.buildDir = "../build"
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
@@ -13,6 +15,20 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+// مهمة تنظيف مجلد البناء
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
+}
+
+// إعدادات buildscript
+buildscript {
+    ext.kotlin_version = '1.9.0' // إصدار Kotlin
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.1' // إصدار Android Gradle Plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // إضافة Kotlin plugin
+    }
 }

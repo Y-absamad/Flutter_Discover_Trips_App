@@ -3,7 +3,7 @@ class Trip {
   final int id;
   final int categoryId;
   final String imageUrl;
-  final String informaion;
+  final String description;
   final List<String> activities;
   final List<String> program;
   final String loction;
@@ -19,7 +19,7 @@ class Trip {
     required this.id,
     required this.categoryId,
     required this.imageUrl,
-    required this.informaion,
+    required this.description,
     required this.activities,
     required this.program,
     required this.loction,

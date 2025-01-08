@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:discover_trips/utils/app_router.dart';
+import 'package:discover_trips/widgets/display_cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -21,16 +23,15 @@ class CategoryItem extends StatelessWidget {
           arguments: {'id': id, 'name': name},
         );
       },
-      // splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Stack(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: Image.network(
-              imageUrl,
+            child: displayCachedNetworkImage(
+              imageUrl: imageUrl,
               height: 250,
-              fit: BoxFit.cover,
+              width: 200,
             ),
           ),
           Container(

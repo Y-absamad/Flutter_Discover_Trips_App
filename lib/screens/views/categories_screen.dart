@@ -1,3 +1,4 @@
+import 'package:discover_trips/models/trip.dart';
 import 'package:discover_trips/viewmodels/category_manager.dart';
 import 'package:discover_trips/widgets/category_item.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class CategoriesScreen extends StatelessWidget {
   final CategoryManager categoryManager;
-  const CategoriesScreen({super.key, required this.categoryManager});
+  final List<Trip>allTrips;
+  const CategoriesScreen({super.key, required this.categoryManager , required this.allTrips});
 
   @override
   Widget build(BuildContext context) {

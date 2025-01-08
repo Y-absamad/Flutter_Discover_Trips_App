@@ -5,9 +5,7 @@ import '../models/category.dart';
 
 class CategoryManager {
   final CategoryRepository _categoryRepository;
-  final List<Trip> allTrips;
-  CategoryManager(
-      {required CategoryRepository categoryRepository, required this.allTrips})
+  CategoryManager({required CategoryRepository categoryRepository})
       : _categoryRepository = categoryRepository;
 
   List<Category> getAllCategories() {
@@ -16,8 +14,9 @@ class CategoryManager {
 
   List<Category> get fetchAllCategories => getAllCategories();
 
-  List<Trip> getTripsByCategory(int categoryId) {
-    List<Trip> trips = allTrips.where((trip) => trip.categoryId == categoryId).toList();
-    return trips;    
+  List<Trip> getTripsByCategory(int categoryId, List<Trip> allTrips) {
+    List<Trip> trips =
+        allTrips.where((trip) => trip.categoryId == categoryId).toList();
+    return trips;
   }
 }

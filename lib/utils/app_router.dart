@@ -1,12 +1,11 @@
 import 'package:discover_trips/models/trip.dart';
 import 'package:flutter/material.dart';
 
-import '../repository/category_repository.dart';
 import '../screens/home_screen.dart';
 import '../screens/trip_details_screen.dart';
 import '../screens/views/all_trips.dart';
 import '../screens/views/categories_screen.dart';
-import '../screens/views/favorites_trips.dart';
+import '../screens/views/favorites_trips_list.dart';
 import '../screens/views/trips_by_category_screen.dart';
 import '../viewmodels/category_manager.dart';
 import '../viewmodels/favorite_manager.dart';
@@ -39,9 +38,9 @@ class AppRoute {
       allTripsScreen: (context) => AllTripsScreen(
             allTrips: tripsManager.allTris,
           ),
-      categoriesScreen: (context) => CategoriesScreen(categoryManager: categoryManager,),
+      categoriesScreen: (context) => CategoriesScreen(categoryManager: categoryManager, allTrips: tripsManager.allTris,),
       tripsByCategoryScreen: (context) =>
-          TripsByCategoryScreen(categoryManager: categoryManager),
+          TripsByCategoryScreen(categoryManager: categoryManager , allTrips: tripsManager.allTris,),
       tripDetailsScreen: (context) => TripDetailsScreen(
             tripsManager: tripsManager,
             changeFavoriteTrips: updateFavoritesTrips,

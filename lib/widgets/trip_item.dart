@@ -1,24 +1,27 @@
+import 'package:discover_trips/widgets/display_cached_network_image.dart';
 import 'package:flutter/material.dart';
+
 import '../utils/app_router.dart';
+import 'trip_info_card.dart';
 
 class TripItem extends StatelessWidget {
   final int id;
   final String imageUrl;
   final String name;
-  final String informaion;
+  final String description;
   final String tripType;
   final String season;
+  final String location;
   const TripItem({
     super.key,
     required this.id,
     required this.imageUrl,
     required this.name,
-    required this.informaion,
+    required this.description,
     required this.tripType,
     required this.season,
+    required this.location,
   });
-
- 
 
   void selectedTrip(BuildContext context) {
     Navigator.of(context).pushNamed(
@@ -29,78 +32,59 @@ class TripItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return InkWell(
       splashColor: Colors.black12,
       onTap: () => selectedTrip(context),
       child: Card(
         margin: EdgeInsets.all(10),
-        elevation: 10,
-        child: Column(
+        elevation: 20,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15),
-                  ),
-                  child: Image.network(
-                    imageUrl,
-                    height: 250,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                  height: 250,
-                  alignment: Alignment.bottomRight,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black.withValues(alpha: 0),
-                        Colors.black.withValues(alpha: 0.6),
-                      ],
-                      stops: [0.75, 1],
-                    ),
-                  ),
-                  child: Text(
-                    name,
-                    style: Theme.of(context).textTheme.headlineLarge,
-                  ),
-                ),
-              ],
+            ClipRRect(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(15),
+                bottomRight: Radius.circular(15),
+              ),
+            child: displayCachedNetworkImage(imageUrl: imageUrl, height: 200, width: 150),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Row(
-                  //   spacing: 6,
-                  //   children: [
-                  //     Icon(Icons.today, color: Colors.amber),
-                  //     Text('$duration أيام'),
-                  //   ],
-                  // ),
-                  Row(
-                    spacing: 6,
-                    children: [
-                      Icon(Icons.sunny, color: Colors.amber),
-                      Text(season),
-                    ],
-                  ),
-                  Row(
-                    spacing: 6,
-                    children: [
-                      Icon(Icons.family_restroom, color: Colors.amber),
-                      Text(tripType),
-                    ],
-                  ),
-                ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  spacing: 6,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    Text(
+                      description,
+                      style:
+                          Theme.of(context).textTheme.headlineSmall!.copyWith(
+                                fontSize: 14,
+                              ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    TripInfoCard(
+                      textLabel: location,
+                      iconData: Icons.location_on,
+                    ),
+                    TripInfoCard(
+                      textLabel: season,
+                      iconData: Icons.sunny_snowing,
+                    ),
+                    TripInfoCard(
+                      textLabel: tripType,
+                      iconData: Icons.airplanemode_active,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -110,94 +94,3 @@ class TripItem extends StatelessWidget {
   }
 }
 
-
-
-// import 'package:discover_trips/models/trip.dart';
-// import 'package:flutter/material.dart';
-
-// class TripItem extends StatelessWidget {
-//   final String tripId;
-//   //final List<Trip> listOfTrip;
-//   const TripItem({super.key, required this.tripId});
-
-//   @override
-//   Widget build(BuildContext context) {
-//      return InkWell(
-//       splashColor: Colors.black12,
-//       onTap: () => selectedTrip(context),
-//       child: Card(
-//         margin: EdgeInsets.all(10),
-//         elevation: 10,
-//         child: Column(
-//           children: [
-//             Stack(
-//               children: [
-//                 ClipRRect(
-//                   borderRadius: BorderRadius.only(
-//                     topLeft: Radius.circular(15),
-//                     topRight: Radius.circular(15),
-//                   ),
-//                   child: Image.network(
-//                     imageUrl,
-//                     height: 250,
-//                     width: double.infinity,
-//                     fit: BoxFit.cover,
-//                   ),
-//                 ),
-//                 Container(
-//                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-//                   height: 250,
-//                   alignment: Alignment.bottomRight,
-//                   decoration: BoxDecoration(
-//                     gradient: LinearGradient(
-//                       begin: Alignment.topCenter,
-//                       end: Alignment.bottomCenter,
-//                       colors: [
-//                         Colors.black.withValues(alpha: 0),
-//                         Colors.black.withValues(alpha: 0.6),
-//                       ],
-//                       stops: [0.75, 1],
-//                     ),
-//                   ),
-//                   child: Text(
-//                     name,
-//                     style: Theme.of(context).textTheme.headlineLarge,
-//                   ),
-//                 ),
-//               ],
-//             ),
-//             Padding(
-//               padding: const EdgeInsets.all(20.0),
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   // Row(
-//                   //   spacing: 6,
-//                   //   children: [
-//                   //     Icon(Icons.today, color: Colors.amber),
-//                   //     Text('$duration أيام'),
-//                   //   ],
-//                   // ),
-//                   Row(
-//                     spacing: 6,
-//                     children: [
-//                       Icon(Icons.sunny, color: Colors.amber),
-//                       Text(listOfTrip[] seasonText),
-//                     ],
-//                   ),
-//                   Row(
-//                     spacing: 6,
-//                     children: [
-//                       Icon(Icons.family_restroom, color: Colors.amber),
-//                       Text(typeText),
-//                     ],
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

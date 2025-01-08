@@ -1,4 +1,5 @@
 import 'package:discover_trips/repository/category_repository.dart';
+import 'package:discover_trips/utils/app_theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import '../viewmodels/favorite_manager.dart';
@@ -7,7 +8,6 @@ import '../models/trip.dart';
 import '../utils/app_router.dart';
 import '../repository/trip_repository.dart';
 import 'viewmodels/category_manager.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         TripsManager(allTrips: _allTrips, tripRepository: _tripRepository);
     _favoriteManager =
         FavoriteManager(favoriteTrips: _favoriteTrips, allTrips: _allTrips);
-    _categoryManager = CategoryManager(categoryRepository: _categoryRepository , allTrips: _tripsManager.allTris);  
+    _categoryManager = CategoryManager(categoryRepository: _categoryRepository);
   }
 
   void _updateFilterChanges(Map<String, bool> filterData) {
@@ -59,48 +59,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Discover Trips',
-      theme: ThemeData(
-        primaryColorLight: Colors.blue,
-        textTheme: ThemeData.light().textTheme.copyWith(
-              headlineMedium: TextStyle(
-                color: Colors.blue,
-                fontSize: 24,
-                fontFamily: 'ELMessiri',
-                fontWeight: FontWeight.bold,
-              ),
-              headlineLarge: TextStyle(
-                color: Colors.white,
-                fontSize: 26,
-                fontFamily: 'ELMessiri',
-                fontWeight: FontWeight.bold,
-              ),
-              headlineSmall: TextStyle(
-                color: Colors.blueGrey,
-                fontSize: 16,
-                fontFamily: 'ELMessiri',
-                fontWeight: FontWeight.bold,
-              ),
-              displaySmall: TextStyle(
-                color: Colors.blueGrey,
-                fontSize: 12,
-                fontFamily: 'ELMessiri',
-                fontWeight: FontWeight.bold,
-              ),
-              displayMedium: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontFamily: 'ELMessiri',
-                fontWeight: FontWeight.bold,
-              ),
-              displayLarge: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontFamily: 'ELMessiri',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-        appBarTheme: AppBarTheme(color: Colors.blue, centerTitle: true),
-      ),
+      theme: appthemeData(),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -109,7 +68,6 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: [
         Locale('ar', 'AE'),
       ],
-
       initialRoute: AppRoute.homeScreen,
       routes: AppRoute.getRoutes(
         favoriteTrips: _favoriteTrips,
