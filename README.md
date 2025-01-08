@@ -4,7 +4,7 @@ Discover Trips App is a simple Flutter application that helps users explore diff
 
 ## Purpose  
 
-- The purpose of this project is to apply what I’ve learned about Flutter to improve my skills. 
+- The purpose of this project is to apply what I’ve learned about Flutter to improve my skills.
 - It’s a practice project to enhance my understanding of building user interfaces and managing app state.
 
 ## Features  
@@ -103,3 +103,8 @@ lib/
 │   ├── trip_item.dart
 │
 ├── main.dart
+```
+
+## Video
+
+![](gif.gif)
