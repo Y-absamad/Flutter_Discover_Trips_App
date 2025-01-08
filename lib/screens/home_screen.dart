@@ -58,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
           currentFilters: widget.currentFilters,
         ),
         body: currentScreen,
-        //bottomNavigationBar: bottomNavigationBar(context),
         bottomNavigationBar: CustomBottomNavigationBar(
           selectedIndex: _selectedIndex,
           onItemTapped: (value) {

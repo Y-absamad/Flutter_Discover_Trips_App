@@ -25,13 +25,9 @@ class DisplayImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
-        // child: Image.network(
-        //   imageUrl,
-        //   fit: BoxFit.cover,
-        // ),
-        child: displayCachedNetworkImage(imageUrl: imageUrl, height: 320, width: double.infinity),
+        child: displayCachedNetworkImage(
+            imageUrl: imageUrl, height: 320, width: double.infinity),
       ),
     );
   }
 }
-

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:discover_trips/utils/app_router.dart';
 import 'package:discover_trips/widgets/display_cached_network_image.dart';
 import 'package:flutter/material.dart';

@@ -26,7 +26,6 @@ class _MyAppState extends State<MyApp> {
   late TripsManager _tripsManager;
   late CategoryManager _categoryManager;
   late List<Trip> tripsData;
-  late List<Trip> _allTrips;
   late final FavoriteManager _favoriteManager;
   final List<Trip> _favoriteTrips = [];
 
@@ -34,11 +33,10 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     tripsData = _tripRepository.fetchAllTrips;
-    _allTrips = tripsData;
     _tripsManager =
-        TripsManager(allTrips: _allTrips, tripRepository: _tripRepository);
+        TripsManager(allTrips: tripsData, tripRepository: _tripRepository);
     _favoriteManager =
-        FavoriteManager(favoriteTrips: _favoriteTrips, allTrips: _allTrips);
+        FavoriteManager(favoriteTrips: _favoriteTrips, allTrips: tripsData);
     _categoryManager = CategoryManager(categoryRepository: _categoryRepository);
   }
 

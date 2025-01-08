@@ -1,5 +1,4 @@
 import 'package:discover_trips/viewmodels/trips_manager.dart';
-import 'package:discover_trips/widgets/display_cached_network_image.dart';
 import 'package:discover_trips/widgets/tripDetails/list_view_container.dart';
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
